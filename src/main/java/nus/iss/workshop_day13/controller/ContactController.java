@@ -32,7 +32,7 @@ public class ContactController {
             logger.info(contactId);
             Contacts ct = new Contacts();
             ct.getContactById(model, contactId, appargs);
-            return "showcontact";        
+            return "created";        
         }
     
 
@@ -44,7 +44,7 @@ public class ContactController {
         Contacts ct = new Contacts();
         ct.saveContact(contact, model, appargs);
 
-        return "showcontact";
+        return "created";
     }
 }
 
