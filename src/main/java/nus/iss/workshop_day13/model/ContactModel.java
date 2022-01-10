@@ -14,7 +14,7 @@ public class ContactModel implements Serializable {
         this.id = this.generateContactID(8);
     }
 
-    public ContactModel(String name, String email, int phoneNurmber) {
+    public ContactModel(String name, String email, int phoneNumber) {
         this.id = this.generateContactID(8);
         this.name = name;
         this.email = email;
@@ -31,6 +31,7 @@ public class ContactModel implements Serializable {
         }
 
         return sb.toString().substring(0, numChars); // converts the stringbuffer value to string
+        // return sb.toString();
             // .substring indicates the beginning index and end index, the end index has to end with numChars = 8 for this case
     }
 

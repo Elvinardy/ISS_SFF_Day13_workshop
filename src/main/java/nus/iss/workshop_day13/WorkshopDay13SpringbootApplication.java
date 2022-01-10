@@ -33,8 +33,9 @@ public class WorkshopDay13SpringbootApplication {
 		}
 		app.run(args);
 	}
+	
 	private static void createDir(String path) {
-		try {
+	try {
             File dir = new File(path);
             dir.mkdirs();
             String perm = "rwxrwx---";
@@ -42,9 +43,10 @@ public class WorkshopDay13SpringbootApplication {
             = PosixFilePermissions.fromString(perm);
             Files.setPosixFilePermissions(dir.toPath(), permissions);
         } catch(IOException e) {
-            logger.error("Error creating directory", e);
-        }
+            logger.error("Error creating directory", e.getMessage());
+       }
 	}
+
 }
 
 	

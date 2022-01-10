@@ -42,7 +42,7 @@ public class ContactController {
         logger.info("Email: " + contact.getEmail());
         logger.info("Phone Number: " + contact.getPhoneNumber());
         Contacts ct = new Contacts();
-        ct.saveContact(contact, model, appargs);
+        ct.saveContact(contact, model, appargs);  // save contacts info and writes into a File by calling the savaContact function
 
         return "created";
     }

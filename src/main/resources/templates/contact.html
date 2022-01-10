@@ -12,17 +12,15 @@
     <form
     action="#"
     th:action="@{/contact}"
-    th:object="${name}"
-    th:object="${email}"
-    th:object="${phone}"
+    th:object="${contact}"
     method="post"
     >
     <p>
-        <p>Name</p><input type="text" th:field="*{name}"/>
+        <p>Name</p><input type="text" th:field="*{name}" required="required"/>
         <br>
-        <p>Email</p><input type="text" th:field="*{email}"/>
+        <p>Email</p><input type="text" th:field="*{email}" required="required"/>
         <br>
-        <p>Phone</p><input type="text" th:field="*{phone}"/>
+        <p>Phone</p><input type="text" th:field="*{phone}" required="required"/>
         <br>
         <br>
         <input type="submit" value="Save"/> 

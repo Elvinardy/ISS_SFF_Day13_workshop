@@ -30,7 +30,7 @@ public class Contacts {
         PrintWriter printWriter = null;
 
     try {
-        FileWriter fileWriter = new FileWriter(optValuesArr[0] + "/" + dataFilename, Charset.forName("utf-8"));  // utf-8 is the most common character encoding method used on the internet, defautlt character is set for html5
+        FileWriter fileWriter = new FileWriter(optValuesArr[0] + "/" + dataFilename, Charset.forName("utf-8"));  // utf-8 is the most common character encoding method used on the internet, defautlt character set for html5
             // this charset.forname function passes a canonical name or an alias and its respective charset name is returned.
           printWriter = new PrintWriter(fileWriter);
           printWriter.println(contact.getName());
@@ -45,7 +45,8 @@ public class Contacts {
 
     model.addAttribute("contact", new ContactModel(contact.getName(), 
                                 contact.getEmail(), 
-                                contact.getPhoneNumber()));     // Add these 3 attributes to the model
+                                contact.getPhoneNumber()));     // Add these 3 attributes to a new model / object 
+                                                                // new model object is created fot isolation, to not share the data in the form
 }
 
     public void getContactById(Model model, String contactId, ApplicationArguments appArgs) {
@@ -64,6 +65,7 @@ public class Contacts {
             idCheck.setName(stringList.get(0));
             idCheck.setEmail(stringList.get(1));
             idCheck.setPhoneNumber(Integer.parseInt(stringList.get(2)));
+            // Display the contents of the file in a HTML document
         } catch(IOException e) {
             logger.error("Error detected" + e.getMessage());
         }
