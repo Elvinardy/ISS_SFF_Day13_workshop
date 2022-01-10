@@ -30,11 +30,13 @@ public class ContactController {
 
     @GetMapping("/getContact/{contactID}") 
         public String getContact(Model model, @PathVariable(value="contactId") String contactId) {
-            logger.info(contactId);
+            logger.info("contactId > " + contactId);
             //Contacts ct = new Contacts();
             ContactModel ctc = service.findById(contactId);
+            logger.info("getId > " + ctc.getId());
+            logger.info("getEmail > " + ctc.getEmail());
+            
             model.addAttribute("contact", ctc);
-           
             return "created";        
         }
     

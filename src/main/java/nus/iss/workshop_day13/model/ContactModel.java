@@ -5,6 +5,7 @@ import java.util.Random;
 
 public class ContactModel implements Serializable {
     
+    public final String Integer = null;
     private String name;
     private String email;
     private int phoneNumber;
