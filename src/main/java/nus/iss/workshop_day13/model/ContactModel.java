@@ -4,8 +4,7 @@ import java.io.Serializable;
 import java.util.Random;
 
 public class ContactModel implements Serializable {
-    
-    public final String Integer = null;
+    private static final long serialVersionUID = 1L;
     private String name;
     private String email;
     private int phoneNumber;
@@ -22,18 +21,18 @@ public class ContactModel implements Serializable {
         this.phoneNumber = phoneNumber;
     }
 
-    public String generateContactID(int numChars) {
+    private synchronized String generateContactID(int numChars) {
         Random random = new Random();  // calling the random method in java
         StringBuffer sb = new StringBuffer();  // calling the StringBuffer method
         while(sb.length() < numChars) {     //  ensure the id length does not exceed the required length of 8 characters
-            //  this will loop and add in new values as long it does not exceed the numChars value which is 8.
-            //  use StringBuffer with .append to add new values to the sequence 
-            sb.append(Integer.toHexString(random.nextInt()));  // .append adds a new value to the current sequence
+            sb.append(Integer.toHexString(random.nextInt()));
+        //  this will loop and add in new values as long it does not exceed the numChars value which is 8.
+        //  use StringBuffer with .append to add new values to the sequence 
+        // .append adds a new value to the current sequence
         }
-
         return sb.toString().substring(0, numChars); // converts the stringbuffer value to string
         // return sb.toString();
-            // .substring indicates the beginning index and end index, the end index has to end with numChars = 8 for this case
+        // .substring indicates the beginning index and end index, the end index has to end with numChars = 8 for this case
     }
 
     public void setName (String name) {

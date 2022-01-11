@@ -13,14 +13,14 @@ import org.springframework.web.bind.annotation.PostMapping;
 import nus.iss.workshop_day13.model.ContactModel;
 import nus.iss.workshop_day13.service.ContactsRedis;
 
-@Controller
+@Controller     // Controller in Spring Web
 public class ContactController {
     private static final Logger logger = LoggerFactory.getLogger(ContactController.class);
      // by declaring Autowired, it eliminates the need for getters and setters.
-   
+
     
-    @Autowired
-    ContactsRedis service;
+    @Autowired      // inject an instance of RedisTemplate into this service object
+    ContactsRedis service;      // RedisTemplate is created by @Bean method
 
     @GetMapping("/")
     public String contactForm(Model model) {
